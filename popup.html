@@ -1,9 +1,34 @@
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-    <script src="semanticui.js"></script>
-    <link rel="stylesheet" type="text/css" href="semanticui.css">
+    <script src="semanticui/semanticui.js"></script>
+    <script src="popup.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="semanticui/semanticui.css">
+    <link rel="stylesheet" type="text/css" href="semanticui/icon.css">
 </head>
 
 <body>
-    <h2 class="ui header">Securiffy</h2>
+    <div class="ui column centered grid">
+        <div class="row"></div>
+        <div class="row">
+           <h2 class="ui header">Securiffy</h2>
+        </div>
+        
+        <div class="row">
+            <button class="ui button positive" id="generate-pwd">
+                Generate password
+            </button>            
+        </div>
+
+        <div class="row">
+            <div class="ui right action input">
+                <input type="text" spellcheck="false" id="pwd">
+                <button class="ui teal icon button" id="copy-pwd">
+                    <i class="copy icon"></i>
+                </button>                
+            </div>
+        </div>
+
+        <div class="row"></div>
+    </div>
 </body>
