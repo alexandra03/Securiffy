@@ -1,0 +1,11 @@
+.menu-content {
+    padding-top: 7rem;
+}
+
+.menu-content .content-tab:not(.active) {
+    display: none;
+}
+
+#generate-pwd {
+    margin-bottom: 2rem;
+}

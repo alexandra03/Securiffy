@@ -5,30 +5,85 @@
 
     <link rel="stylesheet" type="text/css" href="semanticui/semanticui.css">
     <link rel="stylesheet" type="text/css" href="semanticui/icon.css">
+    <link rel="stylesheet" type="text/css" href="popup.css">
 </head>
 
 <body>
     <div class="ui column centered grid">
-        <div class="row"></div>
-        <div class="row">
-           <h2 class="ui header">Securiffy</h2>
-        </div>
-        
-        <div class="row">
-            <button class="ui button positive" id="generate-pwd">
-                Generate password
-            </button>            
-        </div>
-
-        <div class="row">
-            <div class="ui right action input">
-                <input type="text" spellcheck="false" id="pwd">
-                <button class="ui teal icon button" id="copy-pwd">
-                    <i class="copy icon"></i>
-                </button>                
+        <div class="ui top fixed menu inverted teal">
+            <div class="item">
+                <h2 class="ui header inverted">Securiffy</h2>
             </div>
+            <a class="item active" data-tab="main">
+                <i class="icon rocket"></i>
+            </a>
+            <a class="item" data-tab="options">
+                <i class="icon options"></i>
+            </a>
+            <a class="item" data-tab="lab">
+                <i class="icon lab"></i>
+            </a>           
         </div>
 
-        <div class="row"></div>
+        <div class="menu-content">
+            <div class="content-tab active" data-tab="main">
+                <div class="row">
+                    <button class="ui button icon positive" id="generate-pwd">
+                        <i class="refresh icon"></i>
+                        Generate password
+                    </button>            
+                </div>
+
+                <div class="row">
+                    <div class="ui right action input">
+                        <input type="text" spellcheck="false" id="pwd">
+                        <button class="ui teal icon button" id="copy-pwd">
+                            <i class="copy icon"></i>
+                        </button>                
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-tab" data-tab="options">
+                 <div class="ui form">
+                    <div class="inline fields">
+                        <div class="field">
+                            <label>Length</label>
+                            <input type="text">
+                        </div> 
+                    </div>      
+
+                    <div class="ui slider checkbox">
+                        <input type="checkbox" name="lowercase">
+                        <label>Use lowercase letters</label>
+                    </div>
+                    <div class="ui slider checkbox">
+                        <input type="checkbox" name="uppercase">
+                        <label>Use uppercase letters</label>
+                    </div>
+                    <div class="ui slider checkbox">
+                        <input type="checkbox" name="numbers">
+                        <label>Use numbers</label>
+                    </div>                
+                    <div class="ui slider checkbox">
+                        <input type="checkbox" name="special">
+                        <label>Use special characters</label>
+                    </div>   
+                    <div class="ui slider checkbox">
+                        <input type="checkbox" name="mask">
+                        <label>Mask password</label>
+                    </div> 
+                    <div class="field">
+                        <label>Define custom charset</label>
+                        <input type="text">
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-tab" data-tab="lab">
+                Things
+            </div>
+
+        </div>
     </div>
 </body>

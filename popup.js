@@ -33,6 +33,12 @@ let copyPassword = () => {
     }
 };
 
+// Menu item clicked, update UI
+let updateMenu = (target) => {
+    $('.menu .item, .content-tab').removeClass('active');
+    $(`[data-tab="${target.data('tab')}"]`).addClass('active');
+};
+
 // Set up events
 $(document).ready(function() {
     $('#generate-pwd').on('click', () => {
@@ -41,5 +47,9 @@ $(document).ready(function() {
 
     $('#copy-pwd').on('click', () => {
         copyPassword();
+    });
+
+    $('.menu .item').on('click', (e) => {
+        updateMenu($(e.currentTarget));
     });
 });
