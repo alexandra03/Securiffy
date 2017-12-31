@@ -39,6 +39,24 @@ let updateMenu = (target) => {
     $(`[data-tab="${target.data('tab')}"]`).addClass('active');
 };
 
+// Save the password options
+let saveOptions = () => {
+    let options = $('#options').serializeArray();
+    chrome.storage.sync.set({options}, () => {
+        console.log({options});
+    });
+};
+
+// Load saved options into the form
+let loadOptions = (options) => {
+    for (var elem of options) {
+        $(`[type="checkbox"][name="${elem.name}"]`).prop('checked', true);
+        $(`[type="text"][name="${elem.name}"]`).val(elem.value);
+    }
+
+    $('#options').removeClass('loading');
+};
+
 // Set up events
 $(document).ready(function() {
     $('#generate-pwd').on('click', () => {
@@ -51,5 +69,14 @@ $(document).ready(function() {
 
     $('.menu .item').on('click', (e) => {
         updateMenu($(e.currentTarget));
+    });
+
+    $('#options').on('change', (e) => {
+        saveOptions();
+    });
+
+    chrome.storage.sync.get('options', (result) => {
+        let options = result.hasOwnProperty('options') ? result.options : []; 
+        loadOptions(options);
     });
 });
