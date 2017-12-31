@@ -1,5 +1,13 @@
+html, body {
+    /* Fix for the odd Chrome extension height 
+    re-sizing issue, where the height seems to
+    be calculated randomly and doesn't update
+    properly */
+    height: auto;
+}
+
 .menu-content {
-    padding-top: 7rem;
+    padding: 6rem 2rem 3rem 2rem;
 }
 
 .menu-content .content-tab:not(.active) {
@@ -7,5 +15,6 @@
 }
 
 #generate-pwd {
+    margin-top: 1rem;
     margin-bottom: 2rem;
 }
