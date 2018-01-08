@@ -131,7 +131,9 @@ class PasswordGeneratorView {
             $('#copy-error-msg');
 
         msgElem.transition('fade up');
-        setTimeout(() => {msgElem.transition('fade up')}, 2000)
+        setTimeout(() => {
+            msgElem.transition('fade up')
+        }, 2000)
     }
     
 }
