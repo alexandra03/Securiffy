@@ -13,12 +13,5 @@
         "activeTab",
         "storage"
     ],
-    "content_security_policy": "script-src 'self' https://ajax.googleapis.com; object-src 'self'",
-    "content_scripts": [
-        {
-            "matches": ["http://*/*", "https://*/*"], 
-            "js": ["background.js"],
-            "run_at": "document_end"
-        }
-    ]
+    "content_security_policy": "script-src 'self' https://ajax.googleapis.com; object-src 'self'"
 }

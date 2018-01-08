@@ -20,9 +20,6 @@ class PasswordGeneratorModel {
             uppercase: true,
             numbers: true,
             special: true,
-            exclude_similar: false,
-            mask: false,
-            custom: ''
         };
     }
 
@@ -45,8 +42,6 @@ class PasswordGeneratorModel {
             uppercase: false,
             numbers: false,
             special: false,
-            exclude_similar: false,
-            mask: false,
         };
 
         for (var opt of optionsList) {
@@ -123,14 +118,20 @@ class PasswordGeneratorView {
 
     copyPassword() {
         this.getPasswordText().select();
+        let success = undefined;
 
         try {
-            let successful = document.execCommand('copy');
-            let msg = successful ? 'successful' : 'unsuccessful';
-            // Display message
+            success = document.execCommand('copy');
         } catch (err) {
-            // Display error message
+            success = false;
         }
+
+        let msgElem = success ? 
+            $('#copy-success-msg') : 
+            $('#copy-error-msg');
+
+        msgElem.transition('fade up');
+        setTimeout(() => {msgElem.transition('fade up')}, 2000)
     }
     
 }
