@@ -4,6 +4,7 @@
     "name": "Securiffy",
     "description": "Generate secure passwords on the fly",
     "version": "1.0",
+    "update_url": "http://0.0.0.0/",
 
     "browser_action": {
         "default_icon": "images/icon.png",
