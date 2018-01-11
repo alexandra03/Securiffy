@@ -16,13 +16,12 @@ html, body {
 
 #generate-pwd {
     margin-top: 1rem;
-
 }
 
 #pwd-container {
     display: none;
 }
 
-#copy-success-msg, #copy-error-msg {
+#copy-success-msg, #copy-error-msg, #use-pwd-msg {
     display: none;
 }

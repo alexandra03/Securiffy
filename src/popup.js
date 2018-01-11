@@ -1,19 +1,23 @@
 /* Securiffy */
 
 $(document).ready(function() {
-    new PasswordGeneratorController();
+    let options = {
+        active: true,
+        currentWindow: true
+    };
 
-    chrome.tabs.query(
-        {
-            active: true,
-            currentWindow: true
-        }, 
-        function (tabs) {
-            chrome.tabs.sendMessage(
-                tabs[0].id,
-                {from: 'popup', subject: 'DOMInfo'},
-                (response) => {console.log(response)}
-            );
-        }
-    );
+    let message =  {
+        from: 'popup', 
+        subject: 'isPwdInputAvailable'
+    };
+
+    // Find out if there's a password input in the current
+    // page, and start up the popup
+    chrome.tabs.query(options, (tabs) => {
+        chrome.tabs.sendMessage(tabs[0].id, message,
+            (response) => {
+                new PasswordGeneratorController(response.pwdInputAvailable);
+            }
+        );
+    });
 });

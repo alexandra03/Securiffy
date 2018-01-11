@@ -86,7 +86,11 @@ class PasswordGeneratorModel {
 
 class PasswordGeneratorView {
     
-    constructor() {}
+    constructor(pwdInputAvailable) {
+        if (!pwdInputAvailable) {
+            $('#use-pwd').hide();
+        }
+    }
 
     // Commonly used elements
     getOptionsForm() { return $('#options'); }
@@ -131,18 +135,27 @@ class PasswordGeneratorView {
         msgElem.transition('fade up');
         setTimeout(() => {
             msgElem.transition('fade up')
-        }, 2000)
+        }, 2000);
     }
     
+    usePassword() {
+        let msgElem = $('#use-pwd-msg');
+        
+        msgElem.transition('fade up');
+        setTimeout(() => {
+            msgElem.transition('fade up')
+        }, 2000);        
+    }
 }
 
 
 class PasswordGeneratorController {
 
-    constructor() {
+    constructor(pwdInputAvailable) {
         this.model = new PasswordGeneratorModel(this);
-        this.view = new PasswordGeneratorView();
+        this.view = new PasswordGeneratorView(pwdInputAvailable);
         this.bindEvents();
+        this.password = '';
     }
 
     // Commonly used elements
@@ -158,6 +171,10 @@ class PasswordGeneratorController {
     
         $('#copy-pwd').on('click', () => {
             this.copyPassword();
+        });
+
+        $('#use-pwd').on('click', () => {
+            this.usePassword();
         });
     
         $('.menu .item').on('click', (e) => {
@@ -185,9 +202,31 @@ class PasswordGeneratorController {
     generatePassword() {
         let password = this.model.generatePassword();
         this.view.displayPassword(password);
+        this.password = password;
     }
 
     copyPassword() {
         this.view.copyPassword();
+    }
+
+    usePassword() {
+        let options = {
+            active: true,
+            currentWindow: true
+        };
+
+        let message = {
+            from: 'popup', 
+            subject: 'use-pwd', 
+            password: this.password
+        };
+
+        chrome.tabs.query(options, (tabs) => {
+            chrome.tabs.sendMessage(tabs[0].id, message,
+                (response) => {}
+            );
+        });
+
+        this.view.usePassword();
     }
 }
