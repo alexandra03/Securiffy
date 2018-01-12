@@ -140,7 +140,7 @@ class PasswordGeneratorView {
     
     usePassword() {
         let msgElem = $('#use-pwd-msg');
-        
+
         msgElem.transition('fade up');
         setTimeout(() => {
             msgElem.transition('fade up')

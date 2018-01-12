@@ -1,4 +1,4 @@
-const PWD_INPUT_AVAILABLE = $('#password').length;
+const PWD_INPUT_AVAILABLE = $(':password').length;
 
 const STYLES = {
     'background-color': '#00C853',
@@ -21,7 +21,7 @@ chrome.runtime.onMessage.addListener(
         let responseContent = {};
 
         if (msg.subject === 'use-pwd') {
-            $('#password').val(msg.password).css(STYLES);
+            $(':password').val(msg.password).css(STYLES);
         } 
         else if (msg.subject === 'isPwdInputAvailable') {
             responseContent = {

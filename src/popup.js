@@ -16,7 +16,9 @@ $(document).ready(function() {
     chrome.tabs.query(options, (tabs) => {
         chrome.tabs.sendMessage(tabs[0].id, message,
             (response) => {
-                new PasswordGeneratorController(response.pwdInputAvailable);
+                let inputAvailable = response !== undefined ? 
+                    response.pwdInputAvailable : false;
+                new PasswordGeneratorController(inputAvailable);
             }
         );
     });
