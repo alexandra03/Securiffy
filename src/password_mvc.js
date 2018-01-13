@@ -18,6 +18,7 @@ class PasswordGeneratorModel {
             uppercase: true,
             numbers: true,
             special: true,
+            automatic: false,
         };
     }
 
@@ -40,6 +41,7 @@ class PasswordGeneratorModel {
             uppercase: false,
             numbers: false,
             special: false,
+            automatic: false,
         };
 
         for (var opt of optionsList) {
@@ -200,9 +202,13 @@ class PasswordGeneratorController {
     }
 
     generatePassword() {
-        let password = this.model.generatePassword();
-        this.view.displayPassword(password);
-        this.password = password;
+        this.password = this.model.generatePassword();
+
+        if (this.model.options.automatic) {
+            this.usePassword();
+        } else {
+            this.view.displayPassword(this.password);
+        }
     }
 
     copyPassword() {
