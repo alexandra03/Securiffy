@@ -206,9 +206,9 @@ class PasswordGeneratorController {
 
         if (this.model.options.automatic) {
             this.usePassword();
-        } else {
-            this.view.displayPassword(this.password);
         }
+        
+        this.view.displayPassword(this.password);
     }
 
     copyPassword() {
