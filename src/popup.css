@@ -6,6 +6,14 @@ html, body {
     height: auto;
 }
 
+.teal {
+    background-color: #62a7a4 !important;
+}
+
+.positive {
+    background-color: #4bc567 !important;
+}
+
 .header-secur {
     font-family: 'Jura', sans-serif;
 }

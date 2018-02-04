@@ -1,7 +1,7 @@
 const PWD_INPUT_AVAILABLE = $(':password').length;
 
 const STYLES = {
-    'background-color': '#21BA45',
+    'background-color': '#4bc567',
     'color': 'white'
 };
 
