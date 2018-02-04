@@ -154,6 +154,7 @@ class PasswordGeneratorView {
 class PasswordGeneratorController {
 
     constructor(pwdInputAvailable) {
+        this.pwdInputAvailable = pwdInputAvailable;
         this.model = new PasswordGeneratorModel(this);
         this.view = new PasswordGeneratorView(pwdInputAvailable);
         this.bindEvents();
@@ -204,7 +205,7 @@ class PasswordGeneratorController {
     generatePassword() {
         this.password = this.model.generatePassword();
 
-        if (this.model.options.automatic) {
+        if (this.model.options.automatic && this.pwdInputAvailable) {
             this.usePassword();
         }
         

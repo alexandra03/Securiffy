@@ -6,6 +6,14 @@ html, body {
     height: auto;
 }
 
+.header-secur {
+    font-family: 'Jura', sans-serif;
+}
+
+.header-iffy {
+    font-family: 'Schoolbell', cursive;
+}
+
 .menu-content {
     padding: 6rem 2rem 3rem 2rem;
 }
