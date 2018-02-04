@@ -3,7 +3,7 @@
 
     "name": "Securiffy",
     "description": "Generate secure passwords on the fly",
-    "version": "1.0",
+    "version": "0.1",
     "update_url": "http://0.0.0.0/",
 
     "icons": {
